@@ -1,0 +1,56 @@
+extends Camera2D
+
+var mousePos: Vector2 = Vector2()
+var mousePosGlobal: Vector2 = Vector2()
+
+var start: Vector2 = Vector2()
+var startV: Vector2 = Vector2()
+var end: Vector2 = Vector2()
+var endV: Vector2 = Vector2()
+
+var isDragging: bool = false
+
+signal area_selected
+signal start_move_selection
+
+func _process(delta):
+	if Input.is_action_just_pressed("LeftClick"):
+		start = mousePosGlobal
+		startV = mousePos
+		isDragging = true
+	
+	if isDragging:
+		end = mousePosGlobal
+		endV = mousePos
+		draw_area()
+	
+	if Input.is_action_just_released("LeftClick"):
+		if startV.distance_to(mousePos) > 20:
+			end = mousePosGlobal
+			endV = mousePos
+			isDragging = false
+			draw_area(false)
+			emit_signal("area_selected")
+		else:
+			end = start
+			isDragging = false
+			draw_area(false)
+
+
+func _input(event):
+	if event is InputEventMouse:
+		# Depends on the zoom level of the camera
+		mousePos = event.position
+		
+		# Is absolute, relative to the world
+		mousePosGlobal = get_global_mouse_position()
+
+
+func draw_area(s=true):
+	var pos: Vector2 = Vector2()
+	pos.x = min(startV.x, endV.x)
+	pos.y = min(startV.y, endV.y) 
+	
+	%Panel.size = Vector2(abs(startV.x - endV.x), abs(startV.y - endV.y))
+	%Panel.position = pos
+	%Panel.size *= int(s)
