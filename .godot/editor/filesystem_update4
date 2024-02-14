@@ -1,1 +1,6 @@
 res://World.tscn
+res://UI/UI.tscn
+res://UI/Camera.gd
+res://Soldier.tscn
+res://Units/Soldier.tscn
+res://Units/Soldier.gd
