@@ -13,6 +13,11 @@ var isDragging: bool = false
 signal area_selected
 signal start_move_selection
 
+@onready var box = %Panel
+
+func _ready():
+	connect("area_selected", Callable(get_parent(), "_on_area_selected"))
+
 func _process(delta):
 	if Input.is_action_just_pressed("LeftClick"):
 		start = mousePosGlobal
@@ -30,7 +35,7 @@ func _process(delta):
 			endV = mousePos
 			isDragging = false
 			draw_area(false)
-			emit_signal("area_selected")
+			emit_signal("area_selected", self)
 		else:
 			end = start
 			isDragging = false
@@ -51,6 +56,16 @@ func draw_area(s=true):
 	pos.x = min(startV.x, endV.x)
 	pos.y = min(startV.y, endV.y) 
 	
-	%Panel.size = Vector2(abs(startV.x - endV.x), abs(startV.y - endV.y))
-	%Panel.position = pos
-	%Panel.size *= int(s)
+	# Initial size: (0, 0) < Panel < Inspector < Layout < Transform
+	box.size = Vector2(abs(startV.x - endV.x), abs(startV.y - endV.y))
+	box.position = pos
+	
+	# Multiply with 0 (false) or 1 (true) 
+	box.size *= int(s)
+
+
+
+
+
+
+

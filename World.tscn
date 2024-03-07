@@ -1,12 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1y67hhmekwo0"]
+[gd_scene load_steps=5 format=3 uid="uid://d1y67hhmekwo0"]
 
-[ext_resource type="PackedScene" uid="uid://b5bxsbmv0tffd" path="res://UI/UI.tscn" id="1_v6wqp"]
-[ext_resource type="Texture2D" uid="uid://dsxf6rjcrhlbc" path="res://Assets/Puny-Characters/Archer-Green.png" id="2_hlt17"]
+[ext_resource type="Script" path="res://World.gd" id="1_04iyn"]
+[ext_resource type="Script" path="res://UI/Camera.gd" id="1_hiwn0"]
+[ext_resource type="PackedScene" uid="uid://cfaiuxolpx8is" path="res://Units/Soldier.tscn" id="2_kjcno"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kuprs"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 0.501961)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_04iyn")
 
-[node name="UI" parent="." instance=ExtResource("1_v6wqp")]
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+script = ExtResource("1_hiwn0")
 
-[node name="Archer-green" type="Sprite2D" parent="."]
-position = Vector2(544, 260)
-texture = ExtResource("2_hlt17")
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="UI"]
+unique_name_in_owner = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_kuprs")
+
+[node name="Units" type="Node2D" parent="."]
+
+[node name="Unit1" parent="Units" groups=["units"] instance=ExtResource("2_kjcno")]
+position = Vector2(59, 52)
+
+[node name="Unit2" parent="Units" groups=["units"] instance=ExtResource("2_kjcno")]
+position = Vector2(134, 70)
+
+[node name="Unit3" parent="Units" groups=["units"] instance=ExtResource("2_kjcno")]
+position = Vector2(69, 148)
+
+[node name="Unit4" parent="Units" groups=["units"] instance=ExtResource("2_kjcno")]
+position = Vector2(215, 71)
+
+[node name="Unit5" parent="Units" groups=["units"] instance=ExtResource("2_kjcno")]
+position = Vector2(61, 88)
+
+[node name="Unit6" parent="Units" groups=["units"] instance=ExtResource("2_kjcno")]
+position = Vector2(198, 130)
+
+[node name="Unit7" parent="Units" groups=["units"] instance=ExtResource("2_kjcno")]
+position = Vector2(100, 168)
+
+[node name="Unit8" parent="Units" groups=["units"] instance=ExtResource("2_kjcno")]
+position = Vector2(272, 97)

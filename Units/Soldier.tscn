@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfaiuxolpx8is"]
+
+[ext_resource type="Script" path="res://Units/Soldier.gd" id="1_j8uku"]
+[ext_resource type="Texture2D" uid="uid://ch203k4n7l28u" path="res://Assets/Puny-Characters/Soldier-Blue.png" id="1_rmti6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndedk"]
+size = Vector2(12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxxn1"]
+atlas = ExtResource("1_rmti6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvb2k"]
+atlas = ExtResource("1_rmti6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncmn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxxn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvb2k")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai5pu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.211765, 0.482353, 0.529412, 1)
+border_blend = true
+
+[node name="Soldier" type="CharacterBody2D"]
+script = ExtResource("1_j8uku")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_ndedk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_ncmn4")
+animation = &"Idle"
+frame_progress = 0.198819
+metadata/_edit_lock_ = true
+
+[node name="Box" type="Panel" parent="."]
+unique_name_in_owner = true
+offset_left = -10.0
+offset_top = -21.0
+offset_right = 10.0
+offset_bottom = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ai5pu")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
