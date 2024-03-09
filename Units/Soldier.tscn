@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfaiuxolpx8is"]
+[gd_scene load_steps=10 format=3 uid="uid://cfaiuxolpx8is"]
 
 [ext_resource type="Script" path="res://Units/Soldier.gd" id="1_j8uku"]
 [ext_resource type="Texture2D" uid="uid://ch203k4n7l28u" path="res://Assets/Puny-Characters/Soldier-Blue.png" id="1_rmti6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndedk"]
-size = Vector2(12, 13)
+size = Vector2(12, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxxn1"]
 atlas = ExtResource("1_rmti6")
@@ -13,6 +13,14 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvb2k"]
 atlas = ExtResource("1_rmti6")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr37e"]
+atlas = ExtResource("1_rmti6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh0m4"]
+atlas = ExtResource("1_rmti6")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ncmn4"]
 animations = [{
@@ -26,6 +34,17 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr37e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh0m4")
+}],
+"loop": true,
+"name": &"Walk_Down",
+"speed": 3.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai5pu"]
@@ -37,18 +56,18 @@ border_width_bottom = 2
 border_color = Color(0.211765, 0.482353, 0.529412, 1)
 border_blend = true
 
-[node name="Soldier" type="CharacterBody2D"]
+[node name="Soldier" type="CharacterBody2D" groups=["units"]]
 script = ExtResource("1_j8uku")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6.5)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_ndedk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_ncmn4")
-animation = &"Idle"
-frame_progress = 0.198819
+animation = &"Walk_Down"
+frame_progress = 0.0402855
 metadata/_edit_lock_ = true
 
 [node name="Box" type="Panel" parent="."]

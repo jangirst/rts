@@ -1,6 +1,4 @@
-res://World.tscn
-res://UI/Camera.gd
-res://UI/UI.tscn
 res://Units/Soldier.tscn
-res://World.gd
 res://Units/Soldier.gd
+res://World.tscn
+res://UI/UI.tscn

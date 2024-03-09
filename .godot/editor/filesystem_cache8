@@ -1,7 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1709839972
+::res://::1709924799
 icon.svg::CompressedTexture2D::8837716118044321221::1707861962::1707864616::1::::<><>::
-World.tscn::PackedScene::9035656802974368157::1707943023::0::1::::<><>::res://UI/Camera.gd<>uid://cfaiuxolpx8is::::res://Units/Soldier.tscn
+World.gd::GDScript::-1::1709845321::0::1::::<>Node2D<>::
+World.tscn::PackedScene::9035656802974368157::1709917304::0::1::::<><>::res://World.gd<>res://UI/Camera.gd<>uid://cfaiuxolpx8is::::res://Units/Soldier.tscn
 ::res://Assets/::1707930834
 ::res://Assets/Puny-Characters/::1707864836
 Archer-Green.png::CompressedTexture2D::8470501776396213656::1647313942::1707864827::1::::<><>::
@@ -29,9 +30,9 @@ Dirt.png::CompressedTexture2D::5959196775485821580::1647314232::1707864827::1:::
 Grass1.png::CompressedTexture2D::4232104329989508248::1647314146::1707864827::1::::<><>::
 Grass2.png::CompressedTexture2D::343711710322107114::1647314162::1707864827::1::::<><>::
 Tree.png::CompressedTexture2D::7974428688755090823::1647314122::1707864827::1::::<><>::
-::res://UI/::1707943387
-Camera.gd::GDScript::-1::1707943384::0::1::::<>Camera2D<>::
-UI.tscn::PackedScene::4495579077761357321::1707943384::0::1::::<><>::res://UI/Camera.gd
-::res://Units/::1707943131
-Soldier.gd::GDScript::-1::1707943126::0::1::::<>CharacterBody2D<>::
-Soldier.tscn::PackedScene::5124308267581685934::1707943129::0::1::::<><>::res://Units/Soldier.gd<>uid://ch203k4n7l28u::::res://Assets/Puny-Characters/Soldier-Blue.png
+::res://UI/::1709917304
+Camera.gd::GDScript::-1::1709845244::0::1::::<>Camera2D<>::
+UI.tscn::PackedScene::4495579077761357321::1709917304::0::1::::<><>::res://UI/Camera.gd
+::res://Units/::1709917304
+Soldier.gd::GDScript::-1::1709844437::0::1::::<>CharacterBody2D<>::
+Soldier.tscn::PackedScene::5124308267581685934::1709917304::0::1::::<><>::res://Units/Soldier.gd<>uid://ch203k4n7l28u::::res://Assets/Puny-Characters/Soldier-Blue.png
